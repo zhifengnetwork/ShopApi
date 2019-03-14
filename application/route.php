@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 use think\Route;
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
@@ -25,7 +25,11 @@ Route::get('/',function(){
     return '<h1>商城接口</h1>';
 });
 
-
 Route::any('cart/get_cart_list','Cart/cart/get_cart_list',['method'=>'get|post']);
+ 
+Route::get('user/login','user/Login/Login');
+Route::get('user/reg','user/Reg/reg');
+
+//Route::get('user/cs','user/Cs/ss');
 
 

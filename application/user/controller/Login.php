@@ -26,7 +26,7 @@ class Login extends Controller
         
         $res['token'] = md5(time()).md5(time());
     
-        Db::name('users')->where(['user_id'=>$user_id])->save(['token'=>$res['token']]);
+        Db::name('users')->where(['user_id'=>$user_id])->update(['token'=>$res['token']]);
      
         $data = array(
             'status' => 1,

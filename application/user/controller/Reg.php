@@ -26,11 +26,11 @@ class Reg extends Controller
         
         $res['token'] = md5(time()).md5(time());
         
-        Db::name('users')->where(['user_id'=>$user_id])->save(['token'=>$res['token'],['mobile'=>$mobile,'password'=>$password1]]);
+        Db::name('users')->where(['user_id'=>$user_id])->insert(['token'=>$res['token'],'mobile'=>$mobile,'password'=>$password1]);
         
         $data = array(
             'status' => 1,
-            'msg' => '创建成功',
+            'msg' => '创建账号成功',
             'data' => $res
         );
         ajaxReturn($data);

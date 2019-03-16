@@ -9,8 +9,8 @@ class Login extends Controller
     public function Login()
     {
         
-        $mobile = Request::instance()->post('mobile');
-      $password =Request::instance()->post('password');
+        $mobile = Request::instance()->get('mobile');
+      $password =Request::instance()->get('password');
       $password1 = md5('TPSHOP'.$password);
 
         $res = Db::name('users')->where(['mobile'=>$mobile])->find();

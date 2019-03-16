@@ -12,3 +12,6 @@ Route::any('get_area','api/region/get_area',['method'=>'get']);
 Route::post('user/login','user/Login/Login');
 
 Route::post('user/reg','user/Reg/reg');
+
+//图片上传
+Route::any('upload/test','upload/test/index');

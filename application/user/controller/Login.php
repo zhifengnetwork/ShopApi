@@ -10,10 +10,11 @@ class Login extends Controller
     {
         
         $mobile = Request::instance()->post('mobile');
-        $password =Request::instance()->post('password');
-       $password1 = md5('TPSHOP'.$password);
+      $password =Request::instance()->post('password');
+      $password1 = md5('TPSHOP'.$password);
 
         $res = Db::name('users')->where(['mobile'=>$mobile])->find();
+      
         $res2=Db::name('users')->where(['password'=>$password1])->find();
         if($res==FALSE){
             $data = array(
@@ -21,15 +22,15 @@ class Login extends Controller
                 'msg' => '用户不存在'
             );
             ajaxReturn($data);
-            exit;
-        }elseif ($res&&$res2==FALSE){
+           // exit;
+        }else if ($res&&$res2==FALSE){
             $data = array(
                 'status' => -2,
                 'msg' => '密码错误'
             );
             ajaxReturn($data);
-            exit;
-        }elseif ($res&&$res2){
+           // exit;
+        }else if ($res&&$res2){
             
             $res['token'] = md5(time()).md5(time());
             
@@ -46,6 +47,8 @@ class Login extends Controller
             
         }
         
+        
+       // dump($res);
         
         
         
